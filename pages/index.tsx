@@ -24,6 +24,7 @@ type Home = {
 const Home: FC<Home> = ({ posts }) => {
     const dispatch = useDispatch()
     const allPosts = useSelector((state: RootState) => state.posts.allPosts)
+    const status = useSelector((state: RootState) => state.posts.status)
 
     const postsOut = allPosts.map((post) => (
         <Link key={post.id} href={`/posts/${post.id.toString()}`}>
@@ -35,7 +36,7 @@ const Home: FC<Home> = ({ posts }) => {
 
     useEffect(() => {
         dispatch(addPosts(posts))
-    }, [dispatch, posts])
+    }, [dispatch, posts, status])
 
     return (
         <Layout>

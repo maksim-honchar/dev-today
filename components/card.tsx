@@ -1,13 +1,19 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
 
+const Title = styled.h4`
+    color: grey;
+`
+
+const Para = styled.p``
+
 const CardElement = styled.div`
     width: 500px;
-    height: 120px;
-    border: 1px solid green;
+    min-height: 120px;
+    border: 1px solid lightgrey;
     margin: 5px auto;
     padding: 10px;
-    padding: 10px;
+    border-radius: 3px;
 `
 
 type Card = {
@@ -19,8 +25,8 @@ export const Card: FC<Card> = ({ title, body }) => {
     const formatBody = body?.substring(0, 100)
     return (
         <CardElement>
-            <h5>{title}</h5>
-            <p>{formatBody}...</p>
+            <Title>{title}</Title>
+            <Para>{formatBody}...</Para>
         </CardElement>
     )
 }

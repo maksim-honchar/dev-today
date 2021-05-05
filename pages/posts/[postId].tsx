@@ -8,9 +8,14 @@ import { addCurrentPost } from '../../redux/postsSlice'
 import { RootState } from '../../redux/store'
 import { Comments } from '../../components/comments'
 
+const TitleElement = styled.h2`
+    color: grey;
+`
+
 const Wrapper = styled.div`
     max-width: 800px;
     margin: auto;
+    min-height: 100vh;
 `
 
 type Post = {
@@ -37,8 +42,9 @@ export const Post: FC<Post> = ({ post }) => {
     return (
         <Layout>
             <Wrapper>
-                <h2>{title}</h2>
+                <TitleElement>{title}</TitleElement>
                 <p>{body}</p>
+                <hr />
                 <Comments comments={comments} />
             </Wrapper>
         </Layout>
